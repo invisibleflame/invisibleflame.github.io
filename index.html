@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhuvan Aggarwal — AI Researcher</title>
+<meta name="description" content="AI Researcher at Honda R&D, Tokyo. Vision-language models and autonomous-driving perception. Publications at ICLR, CVPR, ICCV Workshops, and WACV.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F5F6F4;
+  --ink:#161A1D;
+  --ink-soft:#3D454B;
+  --ink-faint:#7A848B;
+  --signal:#E8720C;
+  --link:#0E7C86;
+  --line:#D8DCD9;
+  --line-soft:#E6E9E6;
+  --card:#FCFCFB;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --display:'Space Grotesk',system-ui,sans-serif;
+  --body:'Source Serif 4',Georgia,serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:17px;
+  line-height:1.65;
+  background-image:
+    linear-gradient(var(--line-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+  background-size:56px 56px;
+  background-position:center top;
+}
+a{color:var(--link);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .15s}
+a:hover{border-bottom-color:var(--link)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--signal);outline-offset:3px;border-radius:2px}
+.wrap{max-width:980px;margin:0 auto;padding:0 24px}
+
+/* ---------- nav ---------- */
+nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(245,246,244,.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:56px}
+.nav-mark{font-family:var(--mono);font-size:13px;font-weight:600;letter-spacing:.08em;color:var(--ink)}
+.nav-mark span{color:var(--signal)}
+.nav-links{display:flex;gap:22px;font-family:var(--mono);font-size:12.5px;letter-spacing:.04em}
+.nav-links a{color:var(--ink-soft);border:none}
+.nav-links a:hover{color:var(--signal)}
+@media(max-width:640px){.nav-links{gap:14px;font-size:11.5px}}
+
+/* ---------- hero ---------- */
+header{padding:88px 0 64px;position:relative;overflow:hidden}
+.eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:.14em;color:var(--signal);font-weight:600;text-transform:uppercase;margin-bottom:18px}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(40px,7vw,64px);line-height:1.04;letter-spacing:-.02em;margin-bottom:22px}
+.hero-sub{font-size:20px;color:var(--ink-soft);max-width:640px;margin-bottom:14px}
+.hero-sub strong{color:var(--ink);font-weight:600}
+.hero-meta{font-family:var(--mono);font-size:13px;color:var(--ink-faint);margin-bottom:34px}
+.hero-links{display:flex;flex-wrap:wrap;gap:12px}
+.btn{
+  font-family:var(--mono);font-size:13px;font-weight:500;letter-spacing:.03em;
+  padding:10px 18px;border:1.5px solid var(--ink);border-radius:3px;color:var(--ink);
+  transition:all .15s;border-bottom-width:1.5px;
+}
+.btn:hover{background:var(--ink);color:var(--paper);border-bottom-color:var(--ink)}
+.btn.primary{background:var(--signal);border-color:var(--signal);color:#fff}
+.btn.primary:hover{background:#c95f06;border-color:#c95f06}
+
+/* horizon instrument — signature element */
+.horizon{
+  position:absolute;right:24px;top:96px;width:230px;height:230px;
+  border:1.5px solid var(--line);border-radius:50%;
+  background:var(--card);
+  display:flex;align-items:center;justify-content:center;overflow:hidden;
+}
+.horizon::before{
+  content:'';position:absolute;inset:14px;border:1px dashed var(--line);border-radius:50%;
+}
+.horizon-line{
+  position:absolute;width:150%;height:1.5px;background:var(--signal);
+  transition:transform .3s ease-out;
+}
+.horizon-line::after{
+  content:'';position:absolute;left:50%;top:-4px;width:8px;height:8px;
+  border:1.5px solid var(--signal);border-radius:50%;transform:translateX(-50%);background:var(--card);
+}
+.horizon-readout{
+  position:absolute;bottom:26px;font-family:var(--mono);font-size:10.5px;color:var(--ink-faint);letter-spacing:.06em;
+}
+.horizon-tag{
+  position:absolute;top:26px;font-family:var(--mono);font-size:10px;color:var(--ink-faint);letter-spacing:.12em;
+}
+@media(max-width:900px){.horizon{display:none}}
+
+/* ---------- sections ---------- */
+section{padding:58px 0;border-top:1px solid var(--line)}
+.sec-label{
+  font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--ink-faint);
+  margin-bottom:8px;text-transform:uppercase;
+}
+.sec-label b{color:var(--signal);font-weight:600}
+h2{font-family:var(--display);font-weight:600;font-size:clamp(26px,4vw,34px);letter-spacing:-.01em;margin-bottom:30px}
+
+/* ---------- publications ---------- */
+.pub{
+  position:relative;background:var(--card);border:1px solid var(--line);
+  border-radius:4px;padding:22px 26px;margin-bottom:14px;transition:border-color .15s;
+}
+.pub:hover{border-color:var(--ink-soft)}
+/* bounding-box corner brackets on hover */
+.pub::before,.pub::after{
+  content:'';position:absolute;width:14px;height:14px;opacity:0;transition:opacity .15s;
+}
+.pub::before{top:-1px;left:-1px;border-top:2px solid var(--signal);border-left:2px solid var(--signal)}
+.pub::after{bottom:-1px;right:-1px;border-bottom:2px solid var(--signal);border-right:2px solid var(--signal)}
+.pub:hover::before,.pub:hover::after{opacity:1}
+.pub-venue{
+  display:inline-block;font-family:var(--mono);font-size:11.5px;font-weight:600;
+  letter-spacing:.08em;color:var(--signal);margin-bottom:8px;
+}
+.pub-role{
+  display:inline-block;font-family:var(--mono);font-size:11px;color:var(--ink-faint);
+  border:1px solid var(--line);border-radius:2px;padding:1px 7px;margin-left:8px;letter-spacing:.05em;
+}
+.pub h3{font-family:var(--display);font-weight:600;font-size:19px;line-height:1.35;margin-bottom:6px}
+.pub-authors{font-size:14.5px;color:var(--ink-faint)}
+.pub-authors b{color:var(--ink-soft);font-weight:600}
+
+/* ---------- experience ---------- */
+.role{margin-bottom:40px}
+.role-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;margin-bottom:4px}
+.role-head h3{font-family:var(--display);font-weight:600;font-size:21px}
+.role-dates{font-family:var(--mono);font-size:12.5px;color:var(--ink-faint);letter-spacing:.03em}
+.role-org{font-family:var(--mono);font-size:13px;color:var(--signal);margin-bottom:14px;letter-spacing:.02em}
+.role ul{list-style:none}
+.role li{
+  position:relative;padding-left:22px;margin-bottom:10px;color:var(--ink-soft);font-size:16px;
+}
+.role li::before{
+  content:'';position:absolute;left:0;top:11px;width:10px;height:1.5px;background:var(--signal);
+}
+.role li strong{color:var(--ink);font-weight:600}
+.metric{font-family:var(--mono);font-size:.88em;font-weight:600;color:var(--ink)}
+
+/* ---------- research areas ---------- */
+.areas{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.area{
+  background:var(--card);border:1px solid var(--line);border-radius:4px;padding:18px 20px;
+}
+.area h4{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--signal);margin-bottom:9px;font-weight:600}
+.area p{font-size:14.5px;color:var(--ink-soft);line-height:1.55}
+
+/* ---------- honors ---------- */
+.honors{list-style:none}
+.honors li{
+  display:flex;gap:16px;align-items:baseline;padding:13px 0;border-bottom:1px solid var(--line-soft);
+  font-size:16px;color:var(--ink-soft);
+}
+.honors li:last-child{border-bottom:none}
+.honor-tag{
+  flex-shrink:0;font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--ink-faint);
+  width:74px;text-transform:uppercase;
+}
+.honors li strong{color:var(--ink);font-weight:600}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);padding:56px 0 72px}
+footer h2{margin-bottom:14px}
+.foot-sub{color:var(--ink-soft);max-width:560px;margin-bottom:26px}
+.foot-meta{margin-top:44px;font-family:var(--mono);font-size:12px;color:var(--ink-faint);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <div class="nav-mark">BA<span>_</span>TOKYO</div>
+    <div class="nav-links">
+      <a href="#publications">Publications</a>
+      <a href="#experience">Experience</a>
+      <a href="#research">Research</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <p class="eyebrow">AI Researcher · Honda R&amp;D, Tokyo</p>
+    <h1>Bhuvan<br>Aggarwal</h1>
+    <p class="hero-sub">I build perception systems that ship — from <strong>vision-language model research</strong> published at ICLR and CVPR to <strong>on-device models</strong> running in real vehicles and smartphone apps.</p>
+    <p class="hero-meta">ICLR '26 · CVPR '26 · ICCVw '25 · WACV '25 &nbsp;//&nbsp; IIT Bombay, Institute Silver Medal</p>
+    <div class="hero-links">
+      <a class="btn primary" href="#publications">Publications</a>
+      <a class="btn" href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank" rel="noopener">Google Scholar</a>
+      <a class="btn" href="https://linkedin.com/in/aggarwal-bhuvan" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/invisibleflame" target="_blank" rel="noopener">GitHub</a>
+    </div>
+
+    <div class="horizon" aria-hidden="true">
+      <span class="horizon-tag">CAM_00 // ATTITUDE</span>
+      <div class="horizon-line" id="horizonLine"></div>
+      <span class="horizon-readout" id="horizonReadout">PITCH +0.00° · ROLL +0.00°</span>
+    </div>
+  </div>
+</header>
+
+<section id="publications">
+  <div class="wrap">
+    <p class="sec-label"><b>01</b> // Peer-reviewed</p>
+    <h2>Publications</h2>
+
+    <div class="pub">
+      <span class="pub-venue">ICLR 2026</span><span class="pub-role">First author</span>
+      <h3>Seeing What's Not There: Negation Understanding Needs More Than Training</h3>
+      <p class="pub-authors"><b>B. Aggarwal</b>, A. More, M. Soni, S. D. Bhat — International Conference on Learning Representations</p>
+    </div>
+
+    <div class="pub">
+      <span class="pub-venue">CVPR 2026</span>
+      <h3>AdaPrior: Bayesian-Inspired Adaptive Prior Correction for Long-Tailed Continual Learning</h3>
+      <p class="pub-authors">S. D. Bhat, A. More, M. Soni, <b>B. Aggarwal</b> — IEEE/CVF Conference on Computer Vision and Pattern Recognition</p>
+    </div>
+
+    <div class="pub">
+      <span class="pub-venue">ICCVw 2025</span><span class="pub-role">First author</span>
+      <h3>Model Ensemble to Fuse Geometric and Learning Solutions for Camera Rotation Estimation</h3>
+      <p class="pub-authors"><b>B. Aggarwal</b>, A. More, M. Soni, S. Bhat — IEEE/CVF International Conference on Computer Vision Workshops</p>
+    </div>
+
+    <div class="pub">
+      <span class="pub-venue">WACV 2025</span>
+      <h3>PC-GZSL: Prior Correction for Generalized Zero-Shot Learning</h3>
+      <p class="pub-authors">S. D. Bhat, A. More, M. Soni, <b>B. Aggarwal</b> — IEEE/CVF Winter Conference on Applications of Computer Vision</p>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <p class="sec-label"><b>02</b> // Selected work</p>
+    <h2>Experience</h2>
+
+    <div class="role">
+      <div class="role-head"><h3>AI Researcher</h3><span class="role-dates">Jun 2023 — Present</span></div>
+      <p class="role-org">Honda Innovation Lab, Honda R&amp;D — Tokyo, Japan</p>
+      <ul>
+        <li>Developed the first zero-shot algorithm for <strong>negation understanding in VLMs</strong>, outperforming SOTA by <span class="metric">20%</span> — accepted at ICLR 2026 and presented at Honda's global HTF 2025</li>
+        <li>Designed a plug-and-play <strong>model ensemble for camera pitch/roll estimation</strong> — <span class="metric">50%</span> MAE reduction over SOTA across 5 benchmarks, running on-vehicle at <span class="metric">65 FPS</span> — published at ICCVw 2025</li>
+        <li>Engineered a <strong>Rider Assistance System</strong> for 2-wheelers: a lightweight MobileFormer hitting <span class="metric">0.11°</span> test error at <span class="metric">1/5th</span> the parameters of SOTA, deployed via on-device inference in a smartphone app with real-time collision prediction</li>
+        <li>Built an infrastructure-camera <strong>V2X perception pipeline</strong> (YOLOv7 + DeepSORT, BEV velocity estimation) feeding real-time collision risk prediction</li>
+        <li>Built a <strong>surround-view scene understanding system</strong> fusing multi-camera BEV outputs — 3D-transform BEV with slope correction, TensorRT-optimized depth, validated through real-vehicle testing</li>
+        <li>Researching <strong>Vision-Language-Action models</strong> for end-to-end autonomous driving</li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <div class="role-head"><h3>Technical Lead — Self-Driving Car (SeDriCa)</h3><span class="role-dates">Sep 2019 — May 2023</span></div>
+      <p class="role-org">Unmesh Mashruwala Innovation Cell, IIT Bombay</p>
+      <ul>
+        <li>Led a <span class="metric">33-member</span> team to <strong>Level-4 autonomy at 30 km/h</strong>, owning perception, planning, and vehicle integration</li>
+        <li>Designed a multi-task perception network improving inference efficiency by <span class="metric">30%</span>; raised <span class="metric">₹4.5M</span> in technical funding</li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <div class="role-head"><h3>Computer Vision Intern</h3><span class="role-dates">May 2022 — Jul 2022</span></div>
+      <p class="role-org">Daikin — Tokyo, Japan</p>
+      <ul>
+        <li>Built a document transcription and information-extraction pipeline (<span class="metric">10×</span> faster, <span class="metric">93%</span> accuracy), fine-tuning EasyOCR to <span class="metric">91%</span> normalized edit-distance on Japanese documents</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="research">
+  <div class="wrap">
+    <p class="sec-label"><b>03</b> // Focus</p>
+    <h2>Research areas</h2>
+    <div class="areas">
+      <div class="area">
+        <h4>Vision-Language Models</h4>
+        <p>Negation understanding, multimodal reasoning, zero-shot generalization, and VLA models for end-to-end driving.</p>
+      </div>
+      <div class="area">
+        <h4>AD Perception</h4>
+        <p>BEV perception, camera calibration, sensor fusion, drivable-area detection in unstructured environments.</p>
+      </div>
+      <div class="area">
+        <h4>Learning Under Imbalance</h4>
+        <p>Long-tailed learning, continual learning, and generalized zero-shot recognition.</p>
+      </div>
+      <div class="area">
+        <h4>Deployment</h4>
+        <p>On-device inference, model compression and quantization, TensorRT / ONNX / CUDA, ROS/ROS2 systems.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="honors">
+  <div class="wrap">
+    <p class="sec-label"><b>04</b> // Recognition</p>
+    <h2>Honors</h2>
+    <ul class="honors">
+      <li><span class="honor-tag">2024</span><span><strong>1st place</strong>, ROAD++ Challenge Track 1 (Spatiotemporal Agent Tracking), IROS 2024 — and 3rd at ECCV 2024</span></li>
+      <li><span class="honor-tag">2023</span><span><strong>Institute Silver Medal</strong>, IIT Bombay — ranked 1st among 120 in the department, GPA 9.39/10</span></li>
+      <li><span class="honor-tag">2023</span><span><strong>Top 11 of 259 teams</strong>, Mahindra RISE Driverless Car Challenge — awarded a Mahindra E2O vehicle</span></li>
+      <li><span class="honor-tag">'20–'22</span><span><strong>OPJEMS Scholarship</strong> (Jindal Group) and <strong>Kanitkar Merit Award</strong> for academic excellence</span></li>
+    </ul>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <p class="sec-label"><b>05</b> // Contact</p>
+    <h2>Get in touch</h2>
+    <p class="foot-sub">Open to AI Researcher and ML Engineer roles in the US and Europe. The fastest way to reach me is email.</p>
+    <div class="hero-links">
+      <a class="btn primary" href="mailto:bhuvanaggarwal9@gmail.com">bhuvanaggarwal9@gmail.com</a>
+      <a class="btn" href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank" rel="noopener">Google Scholar</a>
+      <a class="btn" href="https://linkedin.com/in/aggarwal-bhuvan" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/invisibleflame" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div class="foot-meta">
+      <span>© 2026 Bhuvan Aggarwal</span>
+      <span>TOKYO, JP // 35.68°N 139.69°E</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Signature element: attitude indicator follows cursor (pitch/roll), respects reduced motion
+(function(){
+  var line=document.getElementById('horizonLine');
+  var readout=document.getElementById('horizonReadout');
+  if(!line||!readout)return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var maxRoll=14,maxPitch=26;
+  document.addEventListener('mousemove',function(e){
+    var cx=window.innerWidth/2, cy=window.innerHeight/2;
+    var roll=((e.clientX-cx)/cx)*maxRoll;
+    var pitch=((e.clientY-cy)/cy)*maxPitch;
+    line.style.transform='translateY('+pitch+'px) rotate('+roll+'deg)';
+    readout.textContent='PITCH '+(pitch>=0?'+':'')+(pitch/10).toFixed(2)+'\u00B0 \u00B7 ROLL '+(roll>=0?'+':'')+roll.toFixed(2)+'\u00B0';
+  },{passive:true});
+})();
+</script>
+
+</body>
+</html>
